@@ -20,3 +20,7 @@
 - findMany = + de 1 retorno, findBy = 1 retorno
 
 - classe abstrata = somente extendida, nao instanciavel
+
+- typescript this is left e this is right
+  quando chamo this is Right, pro typescript, depois do isRight(), o tipo é Right
+

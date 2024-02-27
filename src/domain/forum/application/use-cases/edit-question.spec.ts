@@ -40,14 +40,14 @@ describe('edit question', () => {
     )
     await inMemoryQuestionsRepository.create(question)
 
-    expect(() => {
-      return sut.execute({
-        authorId: 'author-2',
-        questionId: 'question-1',
-        content: '',
-        title: ''
-      })
-    }).rejects.toBeInstanceOf(Error)
+    const result = await sut.execute({
+      authorId: 'author-2',
+      questionId: 'question-1',
+      content: '',
+      title: ''
+    })
+
+    expect(result.isLeft()).toBe(true)
   })
 })
 

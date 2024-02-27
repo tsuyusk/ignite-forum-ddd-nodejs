@@ -38,13 +38,13 @@ describe('edit answer', () => {
     )
     await inMemoryAnswersRepository.create(answer)
 
-    expect(() => {
-      return sut.execute({
-        authorId: 'author-2',
-        answerId: 'answer-1',
-        content: '',
-      })
-    }).rejects.toBeInstanceOf(Error)
+    const result = await sut.execute({
+      authorId: 'author-2',
+      answerId: 'answer-1',
+      content: '',
+    })
+
+    expect(result.isLeft()).toBe(true)
   })
 })
 

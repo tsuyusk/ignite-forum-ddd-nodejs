@@ -54,12 +54,12 @@ describe('delete question', () => {
       answerId: answer.id.toString()
     })
 
-    expect(() => {
-      return sut.execute({
-        authorId: 'author-2',
-        answerId: 'answer-1'
-      })
-    }).rejects.toBeInstanceOf(Error)
+    const result = await sut.execute({
+      authorId: 'author-2',
+      answerId: 'answer-1'
+    })
+
+    expect(result.isLeft()).toBe(true)
   })
 })
 
